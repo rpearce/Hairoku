@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'haml'
+gem 'ejs'
+gem 'backbone-support'
+gem 'thin'
+gem 'pg'
+gem 'json'
+gem 'sass'
