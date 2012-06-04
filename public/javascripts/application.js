@@ -10,9 +10,11 @@
       third_line_syllables = syllableCount(_third);
       total_syllables = first_line_syllables + second_line_syllables + third_line_syllables;
       if ((first_line_syllables && third_line_syllables !== 5) || (second_line_syllables !== 7) || (total_syllables !== 17)) {
+        $('.haiku-validated').hide();
         $('.asian-father').show();
       } else {
         $('.asian-father').hide();
+        $('.haiku-validated').show();
       }
       return $('.syllable-count').html('~' + total_syllables);
     });
