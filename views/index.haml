@@ -8,7 +8,6 @@
     / Basic Page Needs
     / ==================================================
     %title Hairoku - Haiku Validator on Heroku
-    = csrf_meta_tags
     %meta{name: 'description', content: 'Haiku Validator on Heroku'}
     %meta{name: 'author', content: 'Robert Pearce'}
     %meta{name: 'keywords', content: 'Haiku, haiku, haiku validator, Haiku Validator, haiku heroku, heroku, hairoku, Hairoku, japanese poem, how to write a haiku'}
@@ -19,6 +18,9 @@
 
     / CSS
     / ==================================================
+    %link{rel: 'stylesheet', type: 'text/css', href: '../stylesheets/base.css'}
+    %link{rel: 'stylesheet', type: 'text/css', href: '../stylesheets/skeleton.css'}
+    %link{rel: 'stylesheet', type: 'text/css', href: '../stylesheets/layout.css'}
 
     / Favicons
     / ==================================================
@@ -28,7 +30,26 @@
     / %link{rel: "apple-touch-icon", sizes: "114x114", href: "images/apple-touch-icon-114x114.png"}
 
   %body
-    %script{src: "./javascripts/application.js"}
+    %section.container
+      .center
+        %header.title.sixteen.columns{style: "margin-bottom:17px;border-bottom:1px solid #ddd"}
+          %h1 Hairoku - The Haiku Validator on Heroku
+        .one-third.column
+          Think you have what it takes to write a Haiku?
+          %br
+          Please input your lovely poem in the space provided to the right.
+        .one-third.column.haiku-input
+          %fieldset
+            %label{:for => "new-haiku"} Enter Haiku Here!
+            %textarea#new-haiku{:name => "haiku_text", :rowspan => "3", :style => "width:100%"}
+        .one-third.column.syllable-count
+
+    %script{src: "../lib/jquery-1.7.2.min.js"}
+    / %script{src: "../lib/jquery-ui-1.8.18.custom.min.js"}
+    %script{src: "../javascripts/application.js"}
+
     /[if lt IE 9]
       /%script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
     /[endif]
+
+
