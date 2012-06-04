@@ -42,7 +42,9 @@
           %fieldset
             %label{:for => "new-haiku"} Enter Haiku Here!
             %textarea#new-haiku{:name => "haiku_text", :rowspan => "3", :style => "width:100%"}
-        .one-third.column.syllable-count
+          .syllable-count
+            0
+        .one-third.column
 
     %script{src: "../lib/jquery-1.7.2.min.js"}
     / %script{src: "../lib/jquery-ui-1.8.18.custom.min.js"}
