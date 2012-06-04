@@ -37,7 +37,12 @@
         .one-third.column
           Think you have what it takes to write a Haiku?
           %br
-          Please input your lovely poem in the space provided to the right.
+          Please input your lovely poem in the space provided.
+          %br
+          %br
+          %em
+            %strong Disclaimer:
+            This thing might not be perfect
         .one-third.column.haiku-input
           %fieldset
             %label{:for => "new-haiku"} Enter Haiku Here!
@@ -45,11 +50,10 @@
           .syllable-count
             0
         .one-third.column
+          %img.asian-father{src: '../images/i_am_disappoint.jpg', style: 'display: none'}
 
     %script{src: "../lib/jquery-1.7.2.min.js"}
-    / %script{src: "../lib/jquery-ui-1.8.18.custom.min.js"}
     %script{src: "../javascripts/application.js"}
-
     /[if lt IE 9]
       /%script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
     /[endif]

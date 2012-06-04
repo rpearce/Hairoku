@@ -9,7 +9,12 @@
       second_line_syllables = syllableCount(_second);
       third_line_syllables = syllableCount(_third);
       total_syllables = first_line_syllables + second_line_syllables + third_line_syllables;
-      return $('.syllable-count').html(total_syllables);
+      if ((first_line_syllables && third_line_syllables !== 5) || (second_line_syllables !== 7) || (total_syllables !== 17)) {
+        $('.asian-father').show();
+      } else {
+        $('.asian-father').hide();
+      }
+      return $('.syllable-count').html('~' + total_syllables);
     });
     return syllableCount = function(word) {
       if (word !== void 0) {
