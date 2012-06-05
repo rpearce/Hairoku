@@ -340,6 +340,7 @@
 	.add-bottom { margin-bottom: 20px !important; }
   .center { text-align: center; }
   .clear { clear: both; }
+  .inline { display: inline; }
   #background-image-container {
     position: fixed;
     top: -50%;
@@ -391,4 +392,10 @@
     -ms-border-radius    : 8px !important;
     -o-border-radius     : 8px !important;
     border-radius        : 8px !important;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+/*    margin: 0 auto;*/
+    float: right;
   }
