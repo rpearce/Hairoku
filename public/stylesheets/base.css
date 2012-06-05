@@ -357,3 +357,18 @@
     min-width: 50%;
     min-height: 50%;
   }
+
+  textarea {
+    background-color: #a2a673;
+  }
+/*  ::-webkit-input-placeholder {
+    color: ;
+   }
+  :-moz-placeholder {
+    color: darken($limealicious,30%);
+  }
+  :-ms-placeholder {
+    color: darken($limealicious,30%);
+   }
+
+*//*   b8b685*/
