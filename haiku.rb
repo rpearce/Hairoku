@@ -5,4 +5,5 @@ class Haiku
 
   key :created_at, Time
   key :text, String
+  key :id, Time
 end

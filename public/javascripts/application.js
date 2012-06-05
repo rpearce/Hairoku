@@ -3,25 +3,44 @@
   $(document).ready(function() {
     var submitHaiku, syllableCount;
     $('#new-haiku').live('keyup', function() {
-      var first_line_syllables, second_line_syllables, text, third_line_syllables, total_syllables, _first, _ref, _second, _third;
+      var first_line_syllables, second_line_syllables, third_line_syllables, total_syllables, validate, _first, _ref, _second, _third;
       _ref = $(this).val().split('\n'), _first = _ref[0], _second = _ref[1], _third = _ref[2];
       first_line_syllables = syllableCount(_first);
       second_line_syllables = syllableCount(_second);
       third_line_syllables = syllableCount(_third);
       total_syllables = first_line_syllables + second_line_syllables + third_line_syllables;
-      if ((first_line_syllables && third_line_syllables !== 5) || (second_line_syllables !== 7) || (total_syllables !== 17)) {
+      validate = (first_line_syllables && third_line_syllables !== 5) || (second_line_syllables !== 7) || (total_syllables !== 17);
+      if (validate) {
         $('.haiku-validated').hide();
+        $('.submit-button').hide();
+        $('.immortality-achieved').hide();
         $('.asian-father').show();
       } else {
         $('.asian-father').hide();
         $('.haiku-validated').show();
-        text = $(this).val();
-        console.log(text);
-        submitHaiku({
+        $('.submit-button').show();
+      }
+      if ($(this).val() === '') {
+        $('.asian-father').hide();
+        $('.haiku-validated').hide();
+        $('.submit-button').hide();
+        $('.immortality-achieved').hide();
+      }
+      return $('.syllable-count').html('~' + total_syllables + ' syllables');
+    });
+    $('.submit-button').live('click', function() {
+      var count, text;
+      text = $('#new-haiku').val();
+      count = $('.syllable-count').text();
+      if (count === '~17 syllables') {
+        return submitHaiku({
           text: text
         });
       }
-      return $('.syllable-count').html('~' + total_syllables + ' syllables');
+    });
+    $('.immortality-achieved').live('click', function() {
+      $('#new-haiku').val('');
+      return $('#new-haiku').trigger('keyup');
     });
     syllableCount = function(word) {
       if (word !== void 0) {
@@ -38,12 +57,19 @@
     return submitHaiku = function(hash) {
       return $.ajax({
         type: 'post',
-        url: "/post_haiku/",
+        url: "/post_haiku",
         data: JSON.stringify(hash),
         dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
         success: function(message) {
-          return console.log('WIN');
+          return $('.haiku-validated').animate({
+            width: 'auto',
+            height: 'auto'
+          }, {
+            complete: function() {
+              $('.submit-button').hide();
+              return $('.immortality-achieved').fadeIn();
+            }
+          });
         },
         error: function(a, b, c) {
           console.log(a);

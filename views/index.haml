@@ -31,12 +31,13 @@
 
   %body
     #background-image-container
+      / Totally ripped this from www.japanesescreens.com
       %img{src: '../images/flowers_web.jpg'}
     %section.container
       .center
-        %header.title.sixteen.columns{style: "margin-bottom:17px;border-bottom:1px solid #ddd"}
+        %header.title.sixteen.columns{style: "margin-bottom:17px;border-bottom:1px solid #876852"}
           %h1 Hairoku - The Haiku Validator on Heroku
-        .one-third.column
+        .one-third.column.information
           Think you have what it takes to write a Haiku?
           %br
           Please input your lovely poem in the space provided and see if it is, more or less, a haiku.
@@ -55,7 +56,15 @@
         .clear
         .one-third.column &nbsp;
         .one-third.column
-          %img.asian-father{src: '../images/i_am_disappoint.jpg', style: 'display: none'}
+          .haiku-validated
+            .submit-button
+              %h4 Send haiku to ancestors
+            .immortality-achieved
+              %h5 Immortality achieved.
+              %img{src: '../images/green_check.png'}
+              %br
+              %em click to begin anew
+          %img.asian-father{src: '../images/i_am_disappoint.jpg'}
 
     %script{src: "../lib/jquery-1.7.2.min.js"}
     %script{src: "../javascripts/application.js"}
