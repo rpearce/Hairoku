@@ -357,6 +357,11 @@
     min-width: 50%;
     min-height: 50%;
   }
+  .title {
+    margin-bottom: 17px;
+    border-bottom: 1px solid #404040;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.3)
+  }
   textarea {
     background-color: rgba(0,0,0,0.1);
     border-color: #a2a673;
