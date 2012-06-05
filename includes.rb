@@ -1,0 +1,8 @@
+require 'rubygems'
+require 'haml'
+require 'json'
+require 'mongo'
+require 'mongo_mapper'
+require 'date'
+require './credentials'
+require './haiku'

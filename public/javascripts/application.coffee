@@ -12,8 +12,11 @@ $(document).ready ->
     else
       $('.asian-father').hide()
       $('.haiku-validated').show()
+      text = $(this).val()
+      console.log text
+      submitHaiku({text: text})
 
-    $('.syllable-count').html('~' + total_syllables)
+    $('.syllable-count').html('~' + total_syllables + ' syllables')
   )
 
   syllableCount = (word) ->
@@ -26,3 +29,17 @@ $(document).ready ->
       return word.match(/[aeiouy]{1,2}/g).length
     else
       return 0
+
+  submitHaiku = (hash) ->
+      $.ajax
+        method: 'post'
+        url: "/post_haiku"
+        data: JSON.stringify(hash)
+        dataType: 'json'
+        contentType: 'application/json; charset=utf-8'
+        success: (message) ->
+          console.log 'WIN'
+        error: (a, b, c) ->
+          console.log a
+          console.log b
+          console.log c

@@ -1,9 +1,9 @@
 (function() {
 
   $(document).ready(function() {
-    var syllableCount;
+    var submitHaiku, syllableCount;
     $('#new-haiku').live('keyup', function() {
-      var first_line_syllables, second_line_syllables, third_line_syllables, total_syllables, _first, _ref, _second, _third;
+      var first_line_syllables, second_line_syllables, text, third_line_syllables, total_syllables, _first, _ref, _second, _third;
       _ref = $(this).val().split('\n'), _first = _ref[0], _second = _ref[1], _third = _ref[2];
       first_line_syllables = syllableCount(_first);
       second_line_syllables = syllableCount(_second);
@@ -15,10 +15,15 @@
       } else {
         $('.asian-father').hide();
         $('.haiku-validated').show();
+        text = $(this).val();
+        console.log(text);
+        submitHaiku({
+          text: text
+        });
       }
-      return $('.syllable-count').html('~' + total_syllables);
+      return $('.syllable-count').html('~' + total_syllables + ' syllables');
     });
-    return syllableCount = function(word) {
+    syllableCount = function(word) {
       if (word !== void 0) {
         word = word.toLowerCase();
         if (word === '' || word === null) return 0;
@@ -29,6 +34,23 @@
       } else {
         return 0;
       }
+    };
+    return submitHaiku = function(hash) {
+      return $.ajax({
+        type: 'post',
+        url: "/post_haiku/",
+        data: JSON.stringify(hash),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function(message) {
+          return console.log('WIN');
+        },
+        error: function(a, b, c) {
+          console.log(a);
+          console.log(b);
+          return console.log(c);
+        }
+      });
     };
   });
 
