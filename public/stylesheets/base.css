@@ -360,6 +360,7 @@
   textarea {
     background-color: rgba(0,0,0,0.1);
     border-color: #a2a673;
+    color: #404040 !important;
   }
   .asian-father, .haiku-validated, .submit-button, .immortality-achieved {
     display: none;
@@ -386,7 +387,3 @@
     -o-border-radius     : 8px !important;
     border-radius        : 8px !important;
   }
-
-/*robert walton pearce
-is the man of the hour yo
-so dont forget that */
