@@ -6,7 +6,7 @@ class PostHaiku
     MongoMapper.connection = Mongo::Connection.new('staff.mongohq.com', 10071)
     MongoMapper.database = 'hairoku'
     MongoMapper.database.authenticate(USERNAME, PASSWORD)
-    # Haiku.ensure_index(:text, unique: true)
+    Haiku.ensure_index(:text, unique: true)
   end
 
   def post_haiku(text)
@@ -23,9 +23,6 @@ get '/' do
 end
 
 post '/post_haiku/?' do
-  puts 'JALO'
-  puts request.inspect
-
   hash = JSON.parse request.body.read
   haiku = PostHaiku.new
 
