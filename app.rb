@@ -5,7 +5,7 @@ class PostHaiku
   def initialize
     MongoMapper.connection = Mongo::Connection.new('staff.mongohq.com', 10071)
     MongoMapper.database = 'hairoku'
-    MongoMapper.database.authenticate(USERNAME, PASSWORD)
+    MongoMapper.database.authenticate(ENV['username'], ENV['password'])
     Haiku.ensure_index(:text, unique: true)
   end
 
