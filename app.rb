@@ -24,7 +24,8 @@ end
 
 post '/post_haiku/?' do
   puts 'HELLOOOO'
-  puts params[:text].inspect
+  hash = JSON.parse(request.body.read)
+  puts hash.inspect
   haiku = PostHaiku.new
-  haiku.post_haiku(params[:text])
+  haiku.post_haiku(hash['text'])
 end

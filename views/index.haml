@@ -30,6 +30,8 @@
     / %link{rel: "apple-touch-icon", sizes: "114x114", href: "images/apple-touch-icon-114x114.png"}
 
   %body
+    #background-image-container
+      %img{src: '../images/flowers_web.jpg'}
     %section.container
       .center
         %header.title.sixteen.columns{style: "margin-bottom:17px;border-bottom:1px solid #ddd"}
@@ -43,12 +45,15 @@
           %em
             %strong Disclaimer:
             This thing might not be perfect
+        .one-third.column &nbsp;
         .one-third.column.haiku-input
           %fieldset
             %label{:for => "new-haiku"} Attempt Haiku Here
             %textarea#new-haiku{:name => "haiku_text", :rowspan => "3", :style => "width:100%"}
           .syllable-count
             0 syllables
+        .clear
+        .one-third.column &nbsp;
         .one-third.column
           %img.asian-father{src: '../images/i_am_disappoint.jpg', style: 'display: none'}
 
