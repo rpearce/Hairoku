@@ -381,7 +381,11 @@
     cursor: pointer;
   }
   .submit-button h4 {
-    color: #868a57 !important;
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition   : color 0.3s ease-in-out;
+    -o-transition     : color 0.3s ease-in-out;
+    transition        : color 0.3s ease-in-out;
+    color             : #868a57 !important;
   }
   .submit-button:hover h4 {
     color: #404040 !important;
