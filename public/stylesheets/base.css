@@ -339,6 +339,8 @@
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
   .center { text-align: center; }
+  .left { float: left; }
+  .right { float: right; }
   .clear { clear: both; }
   .inline { display: inline; }
   #background-image-container {
@@ -393,9 +395,7 @@
     -o-border-radius     : 8px !important;
     border-radius        : 8px !important;
   }
-  footer {
-    position: fixed;
-    bottom: 0;
-/*    margin: 0 auto;*/
-    float: right;
+  .line-one, .line-two, .line-three {
+    display: none;
+    margin-left: -15px;
   }

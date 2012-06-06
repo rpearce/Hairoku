@@ -45,6 +45,11 @@ $(document).ready ->
     # Update syllable counter
     $('.syllable-count').html('~' + total_syllables + ' syllables')
 
+    # Show line checks
+    if first_line_syllables is 5 then $('.line-one').show() else $('.line-one').hide()
+    if second_line_syllables is 7 then $('.line-two').show() else $('.line-two').hide()
+    if third_line_syllables is 5 then $('.line-three').show() else $('.line-three').hide()
+
     # Validate that the lines match the syllable counts for a haiku
     # If fails_validation returns true, the entered text is not a haiku
     # If fails_validation returns false, the entered text is a haiku

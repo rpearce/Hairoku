@@ -40,7 +40,7 @@
         %header.title.sixteen.columns
           %h1 Hairoku - The Haiku Validator on Heroku
         .one-third.column.information
-          Think you have what it takes to write a Haiku?
+          Think you have what it takes to write a haiku?
           %br
           Please input your lovely poem in the space provided and see if it is, more or less, a haiku.
           %br
@@ -48,6 +48,11 @@
           %em
             %strong Disclaimer:
             This thing might not be perfect
+          %br
+          %br
+          %a{href: 'http://en.wikipedia.org/wiki/Haiku', target: '_new'}
+            Learn about haikus
+
         .one-third.column
           %a.twitter-follow-button{"data-show-count" => "false", "data-size" => "large", :href => "https://twitter.com/RobertWPearce"}
             Follow @RobertWPearce
@@ -56,11 +61,18 @@
             %img{src: '../images/github-logo.png'}
 
         .one-third.column.haiku-input
-          %fieldset
+          %fieldset.right
             %label{:for => "new-haiku"} Attempt Haiku Here
-            %textarea#new-haiku{:name => "haiku_text", :rowspan => "3", :style => "width:100%"}
-          .syllable-count
-            0 syllables
+            .left
+              %img.line-one{src: '../images/green_check_small.png'}
+              %br
+              %img.line-two{src: '../images/green_check_small.png'}
+              %br
+              %img.line-three{src: '../images/green_check_small.png'}
+            %textarea#new-haiku{:name => "haiku_text", :rowspan => "3"}
+
+            .syllable-count
+              0 syllables
         .clear
         .one-third.column &nbsp;
         .one-third.column

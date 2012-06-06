@@ -47,6 +47,21 @@
       third_line_syllables = testLine(_third);
       total_syllables = first_line_syllables + second_line_syllables + third_line_syllables;
       $('.syllable-count').html('~' + total_syllables + ' syllables');
+      if (first_line_syllables === 5) {
+        $('.line-one').show();
+      } else {
+        $('.line-one').hide();
+      }
+      if (second_line_syllables === 7) {
+        $('.line-two').show();
+      } else {
+        $('.line-two').hide();
+      }
+      if (third_line_syllables === 5) {
+        $('.line-three').show();
+      } else {
+        $('.line-three').hide();
+      }
       fails_validation = (first_line_syllables && third_line_syllables !== 5) || (second_line_syllables !== 7) || (total_syllables !== 17);
       return !fails_validation;
     };
@@ -87,8 +102,11 @@
             height: 'auto'
           }, {
             complete: function() {
-              $('.submit-button').hide();
-              return $('.immortality-achieved').fadeIn();
+              return $('.submit-button').fadeOut({
+                complete: function() {
+                  return $('.immortality-achieved').fadeIn();
+                }
+              });
             }
           });
         },
