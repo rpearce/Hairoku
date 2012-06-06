@@ -398,4 +398,5 @@
   .line-one, .line-two, .line-three {
     display: none;
     margin-left: -15px;
+    margin-top: 3px;
   }
